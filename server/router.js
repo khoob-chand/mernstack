@@ -99,11 +99,11 @@ const token = jwt.sign(
 
 
 
-    if(!email || !password){
-        return res.json({mas:"please filled the email and password"});
-    }
    const loginemail=await  data.findOne({email:email});
 
+   if(!email || !password){
+    return res.json({mas:"please filled the email and password"});
+}
   const cpass=loginemail.password;
   const correctemail=loginemail.email;
   
