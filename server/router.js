@@ -40,11 +40,11 @@ if(!name  || !email || !password || !cpassword || !phone){
 // using Async approach
 try{
     if(password!=cpassword){
-        return res.json({message:"password and confirm password not matched"});
+        return res.send({message:"password and confirm password not matched"});
     }
 const userexist=await data.findOne({email:email});
 if(userexist){
-    return res.json("User Email is Already exist ");
+    return res.send("User Email is Already exist ");
 }
 
 
@@ -62,7 +62,7 @@ const database=new data ({
         
      
         const stored=await database.save();
-        return res.json({messag:"user successfully inserted"});
+        return res.send({messag:"user successfully inserted"});
        
      
 
